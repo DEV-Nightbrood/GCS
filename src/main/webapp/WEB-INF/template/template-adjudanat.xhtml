@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+
+<h:head>
+    <title>
+        <ui:insert name="onglet">Insérer un titre d'onglet</ui:insert>
+    </title>
+    <ui:insert name="head">
+
+    </ui:insert>
+</h:head>
+<h:body>
+    <p:megaMenu orientation="top">
+        <p:submenu label="Gestion" icon="fa fa-fw fa-male">
+
+            <p:column>
+                <p:submenu label="Individus">
+                    <p:menuitem value="Listing" url="/individu/listeindividu.xhtml"/>
+                </p:submenu>
+            </p:column>
+        </p:submenu>
+    </p:megaMenu>
+
+    <p:outputLabel>
+        <ui:insert name="contenu"/>
+    </p:outputLabel>
+
+
+</h:body>
+</html>
+
