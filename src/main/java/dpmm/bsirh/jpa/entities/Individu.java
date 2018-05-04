@@ -10,7 +10,7 @@ import java.io.Serializable;
 @Entity
 @Data
 @EqualsAndHashCode(of ="id")
-@Table(name = "individu",catalog = "gcs")
+@Table(name = "individu")
 public class Individu implements Serializable
 {
     @Id
