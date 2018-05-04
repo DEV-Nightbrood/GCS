@@ -10,12 +10,14 @@ import javax.annotation.PreDestroy;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.io.Serializable;
+import java.util.Collections;
 import java.util.List;
 
 @Named("individuController") //Named rends accessible depuis les pages JSF la classe suivante, le nom en paramètre est optionnel mais il doit etre unique sur le serveur
 @ViewScoped
 @Log
-public class IndividuViewController {
+public class IndividuViewController implements Serializable {
 
 
 
@@ -24,7 +26,7 @@ public class IndividuViewController {
     private String monChampEditable;
 
     @Inject
-    private RequestScopedExample request;
+    private RequestScopedExample requestIndividu;
 
 
     @Getter
@@ -33,16 +35,14 @@ public class IndividuViewController {
     @PostConstruct
     private void apresConstruction()
     {
-        log.info("monrequest est instancié :) !");
-
         init_maListeDeDonnes();
-
     }
 
 
     private void init_maListeDeDonnes()
     {
-        maListeDeDonnes = request.getAllIndividuSortedByName();
+        maListeDeDonnes = Collections.EMPTY_LIST;
+        maListeDeDonnes = requestIndividu.allIndividuSortedByName();
     }
 
 

@@ -70,7 +70,6 @@
 
 
     <build>
-        <finalName>GCS</finalName>
 
         <plugins>
             <plugin>
@@ -82,21 +81,26 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.2.0</version>
-
                 <configuration>
                     <warName>GCS</warName>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <project>GCS</project>
                 </configuration>
+
+
+
+
             </plugin>
 
             <plugin>
-                    <groupId>org.flywaydb</groupId>
-                    <artifactId>flyway-maven-plugin</artifactId>
-                    <version>5.0.7</version>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>5.0.7</version>
                 <configuration>
                     <url>jdbc:sqlserver://127.0.0.1:1433;databaseName=GCS</url>
                     <user>SERVER_J2EE</user>

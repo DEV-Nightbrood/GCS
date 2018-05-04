@@ -1,22 +1,22 @@
 package dpmm.bsirh.jpa.facade;
 
-import dpmm.bsirh.jpa.annotation.GCSDataBase;
 import dpmm.bsirh.jpa.entities.Individu;
 
 import javax.ejb.Stateless;
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import java.io.Serializable;
+import java.util.List;
 
 @Stateless
-public class FacadeIndividu extends dpmm.bsirh.jpa.facade.AbstractFacade<Individu>
+public class FacadeIndividu implements Serializable
 {
 
-    @Inject
-    @GCSDataBase
+   @PersistenceContext(name = "GCS",unitName = "GCS")
     private EntityManager gcs;
 
-    @Override
-    protected EntityManager getEntityManager() {
-        return gcs;
+    public List<Individu> readAll ()
+    {
+        return gcs.createQuery("SELECT i FROM Individu i",Individu.class).getResultList();
     }
 }

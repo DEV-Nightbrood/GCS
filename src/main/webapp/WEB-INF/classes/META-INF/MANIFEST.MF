@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: florent
+Class-Path: lib/eclipselink-2.7.1.jar lib/commonj.sdo-2.1.1.jar lib/va
+ lidation-api-1.1.0.Final.jar lib/javax.json-1.0.4.jar lib/lombok-1.16
+ .20.jar lib/primefaces-6.2.jar lib/liquibase-core-3.6.1.jar lib/snake
+ yaml-1.18.jar lib/slf4j-api-1.7.25.jar lib/logback-classic-1.2.3.jar 
+ lib/logback-core-1.2.3.jar lib/mssql-jdbc-6.4.0.jre8.jar
+Created-By: IntelliJ IDEA
+Build-Jdk: 1.8.0_162
+
