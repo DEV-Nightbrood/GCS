@@ -2,8 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui"
-     >
+      xmlns:p="http://primefaces.org/ui" xmlns:h="http://xmlns.jcp.org/jsf/html"
+>
 
 
 <ui:composition template="/WEB-INF/template/template-adjudanat.xhtml">
@@ -11,17 +11,39 @@
 
     <ui:define name="onglet">Individu - Listing</ui:define>
 
-   <ui:define name="contenu">
+    <ui:define name="contenu">
 
-       <p:dataTable value="#{individuController.maListeDeDonnes}" var="individu" >
-           <p:column headerText="Nom">
-               #{individu.nom}
-           </p:column>
-           <p:column headerText="Prenom">
-               #{individu.prenom}
-           </p:column>
-       </p:dataTable>
-   </ui:define>
+        <p:panelGrid>
+
+            <p:row>
+                <p:column>
+                    <h:form id="form_recherche">
+                    <p:outputLabel for="input_recherche"/>
+                    <p:inputText id="input_recherche" value="#{individuController.monChampEditable}">
+                        <p:ajax event="keyup" listener="#{individuController.rechercher()}" update="form_individus"/>
+                    </p:inputText>
+                    </h:form>
+                </p:column>
+            </p:row>
+            <p:row>
+                <p:column>
+                    <h:form id="form_individus">
+                        <p:dataTable value="#{individuController.maListeDeDonnes}" var="individu">
+                            <p:column headerText="Nom">
+                                #{individu.nom}
+                            </p:column>
+                            <p:column headerText="Prenom">
+                                #{individu.prenom}
+                            </p:column>
+                        </p:dataTable>
+                    </h:form>
+                </p:column>
+            </p:row>
+        </p:panelGrid>
+
+
+
+    </ui:define>
 
 </ui:composition>
 

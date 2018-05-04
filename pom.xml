@@ -89,7 +89,6 @@
                 <configuration>
                     <warName>GCS</warName>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
-                    <project>GCS</project>
                 </configuration>
 
 

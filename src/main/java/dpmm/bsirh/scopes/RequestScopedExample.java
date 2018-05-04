@@ -31,11 +31,27 @@ public class RequestScopedExample
         return fc_individu
                 .readAll()
                 .stream()
-                .filter( finalPredi)
+               // .filter( finalPredi)
                 .sorted((individuA, individuB) ->
                     individuA.getNom().compareToIgnoreCase(individuB.getNom())
                 )
                 .collect(Collectors.toList());
     }
 
+    public List<Individu> rechercher(String monChampEditable)
+    {
+        return   rechercher(monChampEditable,allIndividuSortedByName());
+    }
+
+    public List<Individu> rechercher(String monChampEditable, List<Individu> maListe)
+    {
+
+        Predicate<Individu> contient = individu -> individu.getNom().toUpperCase().contains(monChampEditable.toUpperCase());
+
+        return  maListe
+                .stream()
+                .filter(contient)
+                .collect(Collectors.toList());
+
+    }
 }
